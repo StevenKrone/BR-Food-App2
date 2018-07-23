@@ -12,10 +12,14 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterInterceptor } from './inter.interceptor';
 
 import { AppComponent } from './app.component';
+import { DetailComponent } from './component/detail/detail.component';
+import { ListComponent } from './component/list/list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DetailComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
