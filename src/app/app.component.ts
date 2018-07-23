@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +9,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  private restaurantsUrl = 'https://s3.amazonaws.com/br-codingexams/restaurants.json';
+
+  private inMemAPIUrl = 'api/restaurants'
+
+  constructor( private http: HttpClient ) {
+
+  }
+
+  ngOnInit(): void { // adding the lifecycle hook ngOnInit
+    this.http.get(this.inMemAPIUrl).subscribe(data => {
+      console.log(data); // using the HttpClient instance, http to call the API then subscribe to the data and display to console
+    });
+  }
+
 }
