@@ -1,5 +1,9 @@
 
-<div *ngFor="let rest of data; index as i; first as isFirst">
-  <h3>{{rest.name}}</h3>{{i}}
+<div *ngIf="data != null">
+<div style="margin: 25px; padding: 25px; border: 2px; border-style:dashed;" *ngFor="let rest of data; index as i; first as isFirst">
+  <h1>{{rest.name}}</h1>
+  <h3>{{rest.category}}</h3>
 
+  <button (click)="goToDetail(i)">Click Me</button>
+</div>
 </div>
