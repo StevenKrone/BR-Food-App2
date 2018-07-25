@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -14,7 +15,7 @@ export class ListComponent implements OnInit {
   // private restaurantsUrl = 'https://s3.amazonaws.com/br-codingexams/restaurants.json';
    private inMemAPIUrl = 'api/restaurants'
 
-  data: any = {};
+  data: any = [];
 
   constructor(  private http: HttpClient,  private router: Router ) { }
 

@@ -6,6 +6,9 @@ import { Location } from '@angular/common';
 
 import {HttpClient} from '@angular/common/http';
 
+import { ViewChild } from '@angular/core';
+import {  } from '@types/googlemaps';
+
 
 //import 'rxjs/add/operator/switchMap';
 
@@ -18,9 +21,17 @@ export class DetailComponent implements OnInit {
 
   //@Input() restaurantID: number;
 
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
+
   restaurantData: any = {};
 
   private inMemAPIUrl = 'api/restaurants'
+
+
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+  
 
   constructor(private http: HttpClient,  private router: Router,
     private route: ActivatedRoute,  
@@ -28,6 +39,11 @@ export class DetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+
+
+     //Request the Data specific to the Restaurant
+
     const id = +this.route.snapshot.paramMap.get('id');
     console.log(id);
 
@@ -36,6 +52,22 @@ export class DetailComponent implements OnInit {
       console.log(this.restaurantData);
 
     });
+
+    //Instantiate the Embedded Google Maps (GMAPS)
+    console.log(this.restaurantData.location.lat);
+    console.log(this.restaurantData.location.lng);
+
+
+    var mapProp = {
+          center: new google.maps.LatLng(18.5793, 73.8143),
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
+      
+
+      
+
 
   }
 

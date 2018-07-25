@@ -18,6 +18,8 @@ import { AppComponent } from './app.component';
 import { DetailComponent } from './component/detail/detail.component';
 import { ListComponent } from './component/list/list.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,10 @@ import { ListComponent } from './component/list/list.component';
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryRestaurantsService),
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDhbROl1bCF2V4yqrl9db0UfvBusEXOZ4s'
+    })
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
