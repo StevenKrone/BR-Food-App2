@@ -1,18 +1,54 @@
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<div class="container" style="min-width: 470px; text-align:center;">
+  <div class="row" >
 
-{{restaurantData.name}}
-<br/>
-{{restaurantData.category}}
-<br/>
-{{restaurantData.location.address}}
-<br/>
-{{restaurantData.contact.phone}}
-<br/>
-{{restaurantData.contact.twitter}}
-<br/>
+    <div class="span3 headerBack">
+      <img src="../assets/ic_webBack@2x.png" (click)="goBack()">
+    </div>
 
-<br/>
+    <div class="span5 headerTitle">
+      Lunch Tyme
+    </div>
 
-<button (click)="goBack()">Back</button>
+    <div class="span3 headerMap">
+      <img src="../assets/icon_map@2x.png">
+    </div>
+
+  </div>
+</div>
+
+<div style="width:100%; min-width:470px;">
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+
+  <div class="nameNCategorySection">
+
+    <div class="topText">
+      <div style="font-weight: bold;">{{restaurantData.name}}</div>
+      <div>{{restaurantData.category}}</div>
+    </div>
+
+  </div>
+
+
+  <div class="address">
+  {{restaurantData.location.address}}
+  </div>
+  
+  <div class="cityZip">
+  {{restaurantData.location.city}}, {{restaurantData.location.state}} {{restaurantData.location.postalCode}}
+  </div>
+
+
+  <div class="phone">
+  {{restaurantData.contact.phone}}
+  </div>
+
+
+  <div class="twitter">
+  {{restaurantData.contact.twitter}}
+  </div>
+
+
+</div>

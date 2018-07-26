@@ -46,7 +46,6 @@ export class DetailComponent implements OnInit {
      //Request the Data specific to the Restaurant
 
     const id = +this.route.snapshot.paramMap.get('id');
-    console.log(id);
 
      this.http.get(this.inMemAPIUrl).subscribe(restaurantData => {
       this.restaurantData = restaurantData[id];
@@ -58,20 +57,12 @@ export class DetailComponent implements OnInit {
     });
 
     //Instantiate the Embedded Google Maps (GMAPS)
-    console.log(this.restaurantData.location.lat);
-    console.log(this.restaurantData.location.lng);
-
-
     var mapProp = {
           center: new google.maps.LatLng(18.5793, 73.8143),
           zoom: 15,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         this.map = new google.maps.Map(this.gmapElement.nativeElement, mapProp);
-      
-
-      
-
 
   }
 

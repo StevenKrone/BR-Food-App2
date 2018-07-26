@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Location } from '@angular/common';
+
 // import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -10,12 +12,18 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  constructor( ) {
+  constructor(
+    private location: Location  
+   ) {
 
   }
 
   ngOnInit(): void {
     
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

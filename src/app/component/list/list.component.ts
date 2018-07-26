@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 
 import {HttpClient} from '@angular/common/http';
 
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -17,7 +19,7 @@ export class ListComponent implements OnInit {
 
   data: any = [];
 
-  constructor(  private http: HttpClient,  private router: Router ) { }
+  constructor(  private http: HttpClient,  private router: Router, private _sanitizer: DomSanitizer ) { }
 
   ngOnInit() {
       this.http.get(this.inMemAPIUrl).subscribe(data => {
@@ -30,6 +32,10 @@ export class ListComponent implements OnInit {
       
       this.router.navigate(['/detail', id ]);
       //this.router.navigate(['/tribedetail', this.selectedTribe.id]);
+  }
+
+  getBackground(image) {
+    return this._sanitizer.bypassSecurityTrustStyle(`linear-gradient(rgba(29, 29, 29, 0), rgba(16, 16, 23, 0.5)), url(${image})`);
   }
 
 }
