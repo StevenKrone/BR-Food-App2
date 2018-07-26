@@ -29,8 +29,9 @@ export class DetailComponent implements OnInit {
   private inMemAPIUrl = 'api/restaurants'
 
 
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number;
+  lng: number;
+  zoom: number = 15;
   
 
   constructor(private http: HttpClient,  private router: Router,
@@ -49,6 +50,9 @@ export class DetailComponent implements OnInit {
 
      this.http.get(this.inMemAPIUrl).subscribe(restaurantData => {
       this.restaurantData = restaurantData[id];
+      this.lat = restaurantData[id].location.lat;
+      this.lng = restaurantData[id].location.lng;
+
       console.log(this.restaurantData);
 
     });
