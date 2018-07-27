@@ -5,6 +5,8 @@ import {HttpClient} from '@angular/common/http';
 
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 
+import { Location } from '@angular/common';
+
 
 
 @Component({
@@ -19,7 +21,7 @@ export class ListComponent implements OnInit {
 
   data: any = [];
 
-  constructor(  private http: HttpClient,  private router: Router, private _sanitizer: DomSanitizer ) { }
+  constructor(  private http: HttpClient,  private router: Router, private _sanitizer: DomSanitizer, private location: Location   ) { }
 
   ngOnInit() {
       this.http.get(this.inMemAPIUrl).subscribe(data => {
@@ -36,6 +38,10 @@ export class ListComponent implements OnInit {
 
   getBackground(image) {
     return this._sanitizer.bypassSecurityTrustStyle(`linear-gradient(rgba(29, 29, 29, 0), rgba(16, 16, 23, 0.5)), url(${image})`);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

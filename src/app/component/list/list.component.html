@@ -1,28 +1,19 @@
-<div class="container" style="min-width: 470px; text-align:center;">
-<div class="row" >
+<div class="container" style="min-width: 470px;">
 
-  <div class="span3 headerBack">
-    <!--<img src="../assets/ic_webBack@2x.png" (click)="goBack()">-->
-  </div>
 
-  <div class="span5 headerTitle">
-    Lunch Tyme
-  </div>
-
-  <div class="span3 headerMap">
-    <img src="../assets/icon_map@2x.png">
-  </div>
-
-</div>
-</div>
 
 
 <!--<div class="detail" style="background-image: url({{rest.backgroundImageURL}});" *ngFor="let rest of data; index as i; first as isFirst" (click)="goToDetail(i)">-->
 <!--<div class="detail" [style.background-image]="{{this.sanitization.bypassSecurityTrustStyle(`url(rest.backgroundImageURL)`)}}" *ngFor="let rest of data; index as i; first as isFirst" (click)="goToDetail(i)">-->
 <!--<div class="detail" style="background-image: url({{rest.backgroundImageURL}});" *ngFor="let rest of data; index as i; first as isFirst" (click)="goToDetail(i)">-->
-<div [style.background-image]="getBackground(rest.backgroundImageURL)" class="detail" *ngFor="let rest of data; index as i; first as isFirst" (click)="goToDetail(i)">
 
-  
-  <h1 style="color:white;">{{rest.name}}</h1>
-  <h3 style="color:white;">{{rest.category}}</h3>
+  <div [style.background-image]="getBackground(rest.backgroundImageURL)" 
+      class="detail" 
+      *ngFor="let rest of data; index as i; first as isFirst" 
+      (click)="goToDetail(i)">
+
+    
+    <h1 style="color:white;">{{rest.name}}</h1>
+    <h3 style="color:white;">{{rest.category}}</h3>
+  </div>
 </div>

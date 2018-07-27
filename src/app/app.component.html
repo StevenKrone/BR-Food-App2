@@ -20,5 +20,37 @@
 
 
 <!--<div id="map"></div>-->
+<div class="container">
+    <div class="row" style="text-align:center;" >
 
+      <div class="span3 headerBack">
+        <img src="../assets/ic_webBack@2x.png" (click)="goBack()">
+      </div>
+
+      <div class="span5 headerTitle">
+        Lunch Tyme
+      </div>
+
+      <div class="span3 headerMap">
+        <img src="../assets/icon_map@2x.png">
+      </div>
+
+    </div>
+</div>
+
+<div class="singlecolumn">
 <router-outlet></router-outlet>
+</div>
+<!--
+<div class="doublecolumn">
+  <div class="container">
+    <div class="row">
+      <div>
+        <app-list></app-list>
+      </div>
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>-->

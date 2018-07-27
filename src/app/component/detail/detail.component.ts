@@ -66,6 +66,8 @@ export class DetailComponent implements OnInit {
 
   }
 
+  
+
   goBack(): void {
     this.location.back();
   }
